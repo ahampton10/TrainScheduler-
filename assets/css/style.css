@@ -1,0 +1,17 @@
+.jumbotron {
+    background-image: url("../images/hero-6-sample-train_tcm1109-190382.png"); 
+    background-position: right; 
+    background-color: rgba(9, 63, 212, 0.2); 
+    height:350px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+}
+.jumbotron .container {
+  position:relative;
+  top:50px;
+}
+
+body {
+    background-image: url("../images/triangle-mosaic.png"); 
+}
