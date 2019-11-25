@@ -13,6 +13,11 @@ var index = 0;
 
   var database = firebase.database();
 
+  var name; 
+  var destination; 
+  var firstTime; 
+  var frequency = 0; 
+
   $("#formID").on("submit", function (event) {
   		event.preventDefault();
 
@@ -48,12 +53,14 @@ var index = 0;
     console.log(firstTrain);
     console.log(firstTime);
     var currentTime = moment();
+    console.log("CURRENT TIME:" + moment(currentTime).format("hh:mm")); 
     var currentTimeCalc = moment().subtract(1, "years");
     var diffTime = moment().diff(moment(firstTrain), "minutes");
-    var tRemainder = diffTime%tFrequency;
+    var tRemainder = diffTime % tFrequency;
+    console.log(tRemainder); 
     var minutesRemaining = tFrequency - tRemainder;
-    var nextTRain = moment().add(minutesRemaining, "minutes").format ("hh:mm A");
-    var beforeCalc = moment(firstTrain).diff(currentTimeCalc, "minutes");
+    var nextTRain = moment().add(minutesRemaining, "minutes").format ("hh:mm");
+    var beforeCalc = moment(firstTrain).diff(nextTRain, "minutes");
     var beforeMinutes = Math.ceil(moment.duration(beforeCalc).asMinutes());
 
     if ((currentTimeCalc - firstTrain) < 0) {
